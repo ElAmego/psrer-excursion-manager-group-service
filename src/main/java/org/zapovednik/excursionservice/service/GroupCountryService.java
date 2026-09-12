@@ -37,5 +37,5 @@ public interface GroupCountryService {
             final LocalDate endDate
     );
 
-    GroupCountryResponseDto update(final Long groupCountryId, final GroupCountryRequestDto requestDto);
+    GroupCountryResponseDto updateById(final Long groupCountryId, final GroupCountryRequestDto requestDto);
 }

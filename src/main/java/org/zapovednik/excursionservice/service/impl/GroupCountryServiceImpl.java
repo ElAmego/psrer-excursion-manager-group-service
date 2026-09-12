@@ -130,7 +130,7 @@ public class GroupCountryServiceImpl implements GroupCountryService {
 
     @Override
     @Transactional
-    public GroupCountryResponseDto update(final Long groupCountryId, final GroupCountryRequestDto requestDto) {
+    public GroupCountryResponseDto updateById(final Long groupCountryId, final GroupCountryRequestDto requestDto) {
         final GroupCountry groupCountry = groupCountryRepository.findById(groupCountryId)
                 .orElseThrow(() -> new NotFoundException("Group country not found: " + groupCountryId));
         final Long countryId = requestDto.getCountryId();
