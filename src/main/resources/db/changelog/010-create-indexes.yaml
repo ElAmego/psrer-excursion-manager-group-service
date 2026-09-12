@@ -1,0 +1,53 @@
+databaseChangeLog:
+  - changeSet:
+      id: 10
+      author: "el.amegoal@gmail.com"
+      changes:
+        - createIndex:
+            tableName: organizations
+            indexName: idx_organizations_name
+            columns:
+              - column:
+                  name: organization_name
+        - createIndex:
+            tableName: accompanying_persons
+            indexName: idx_accompanying_persons_name
+            columns:
+              - column:
+                  name: accompanying_person_name
+        - createIndex:
+            tableName: routes
+            indexName: idx_routes_name
+            columns:
+              - column:
+                  name: route_name
+        - createIndex:
+            tableName: countries
+            indexName: idx_countries_name
+            columns:
+              - column:
+                  name: country_name
+        - createIndex:
+            tableName: audit_logs
+            indexName: idx_audit_logs_user_id
+            columns:
+              - column:
+                  name: user_id
+        - createIndex:
+            tableName: excursion_groups
+            indexName: idx_excursion_groups_start_date
+            columns:
+              - column:
+                  name: start_date
+        - createIndex:
+            tableName: excursion_groups
+            indexName: idx_excursion_groups_status
+            columns:
+              - column:
+                  name: status
+        - createIndex:
+            tableName: drivers
+            indexName: idx_drivers_name
+            columns:
+              - column:
+                  name: driver_name

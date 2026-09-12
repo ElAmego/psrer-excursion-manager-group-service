@@ -1,0 +1,94 @@
+databaseChangeLog:
+  - changeSet:
+      id: 8
+      author: "el.amegoal@gmail.com"
+      changes:
+        - createTable:
+            tableName: excursion_groups
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_excursion_groups
+              - column:
+                  name: status
+                  type: VARCHAR(32)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: start_date
+                  type: DATE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: end_date
+                  type: DATE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: is_legal
+                  type: BOOLEAN
+                  constraints:
+                    nullable: false
+              - column:
+                  name: organization_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_excursion_groups_organizations
+                    references: organizations(id)
+              - column:
+                  name: customer_name
+                  type: VARCHAR(50)
+              - column:
+                  name: contact_data
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: accompanying_person_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_excursion_groups_accompanying_persons
+                    references: accompanying_persons(id)
+              - column:
+                  name: route_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_excursion_groups_routes
+                    references: routes(id)
+              - column:
+                  name: driver_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_excursion_groups_drivers
+                    references: drivers(id)
+              - column:
+                  name: price
+                  type: DECIMAL(10, 2)
+              - column:
+                name: export
+                type: DECIMAL(10, 2)
+              - column:
+                  name: is_paid
+                  type: BOOLEAN
+              - column:
+                  name: contract_date
+                  type: DATE
+              - column:
+                  name: contract_number
+                  type: SMALLINT
+              - column:
+                  name: is_documents_submitted
+                  type: BOOLEAN
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false

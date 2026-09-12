@@ -1,0 +1,54 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2
+      author: "el.amegoal@gmail.com"
+      changes:
+        - createTable:
+            tableName: organizations
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_organizations
+              - column:
+                  name: organization_name
+                  type: VARCHAR(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: founder_name
+                  type: VARCHAR(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: registered_address
+                  type: VARCHAR(512)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: current_account
+                  type: VARCHAR(28)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: bank_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_organizations_banks
+                    references: banks(id)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false

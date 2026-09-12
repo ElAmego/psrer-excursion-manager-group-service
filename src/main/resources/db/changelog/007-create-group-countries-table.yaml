@@ -1,0 +1,44 @@
+databaseChangeLog:
+  - changeSet:
+      id: 7
+      author: "el.amegoal@gmail.com"
+      changes:
+        - createTable:
+            tableName: group_countries
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_group_countries
+              - column:
+                  name: group_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_group_countries_excursion_groups
+                    references: excursion_groups(id)
+                    deleteCascade: true
+              - column:
+                  name: country_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_group_countries_countries
+                    references: countries(id)
+              - column:
+                  name: participant_quantity
+                  type: SMALLINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false

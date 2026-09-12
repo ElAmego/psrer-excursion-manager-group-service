@@ -1,0 +1,11 @@
+package org.zapovednik.excursionservice;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class ExcursionServiceApi {
+    public static void main(String[] args) {
+        SpringApplication.run(ExcursionServiceApi.class, args);
+    }
+}
